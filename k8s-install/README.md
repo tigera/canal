@@ -21,21 +21,6 @@ Requirements:
 - Make sure your k8s cluster is configured to provide serviceaccount tokens to pods.
 - Make sure your kubelets have been started with `--network-plugin=cni` and
   have `--cni-conf-dir` and `--cni-bin-dir` properly set
-
-#### Using an etcd datastore 
-
-`canal.yaml`: Contains a Kubernetes DaemonSet which install and runs canal on each Kubernetes master and node.
-This also includes a ReplicaSet which deploys the Calico Kubernetes policy controller, and a ConfigMap for
-configuring the install.
-
-Requirements:
-- Make sure you configure canal.yaml with the endpoints of your etcd cluster. 
-
-#### Without an etcd datastore
-
-`canal-kubernetes-datastore.yaml`: Contains a Kubernetes DaemonSet to install canal on each Kubernetes master and node.
-
-Requirements:
 - Make sure your controller manager has been started with `--cluster-cidr=10.244.0.0/16` and `--allocate-node-cidrs=true`.
 
 ## Configuration
@@ -47,6 +32,8 @@ ConfigMap [configures the Calico CNI plugin](https://github.com/projectcalico/ca
 automatically to use service account token authentication and the Kubernetes Service clusterIP. 
 
 ### Etcd
+
+We have provided an example etcd with TLS manifest `canal_etcd_tls.yaml`.
 
 When using an etcd datastore, the provided manifest allows you to specify the etcd endpoints for your etcd cluster,
 which must be configured independently.
