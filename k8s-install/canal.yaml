@@ -1,6 +1,4 @@
 # This ConfigMap can be used to configure a self-hosted Canal installation.
-# See `canal.yaml` for an example of a Canal deployment which uses
-# the config in this ConfigMap.
 kind: ConfigMap
 apiVersion: v1
 metadata:
