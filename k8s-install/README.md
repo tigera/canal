@@ -1,15 +1,23 @@
 # Kubernetes self-hosted install
 
-This directory includes manifests for deploying canal on Kubernetes using the Kubernetes API.  
-
-#### For Kubernetes 1.7
+This directory includes manifests for deploying canal on Kubernetes using the Kubernetes API. 
 
 > **Note:** If you are upgrading from the Kubernetes 
 [1.6](#for-kubernetes-16) or [1.5](#for-kubernetes-15) manifests to the
-[1.7](#for-kubernetes-17) manifest it is neccessary to
+[1.7](#for-kubernetes-17) or [1.7](#for-kubernetes-18)manifest it is neccessary to
 [migrate your Calico configuration data](https://github.com/projectcalico/calico/blob/master/upgrade/v2.5/README.md)
 before upgrading. Otherwise, your cluster may lose connectivity after the
-upgrade.
+upgrade. 
+
+#### For Kubernetes 1.8
+
+```
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/canal/master/k8s-install/1.8/rbac.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/canal/master/k8s-install/1.8/canal.yaml
+```
+
+#### For Kubernetes 1.7
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/canal/master/k8s-install/1.7/rbac.yaml
